@@ -1,5 +1,5 @@
 import React from "react";
-// import Banner from ''
+import banner from '/Banner.svg'
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -13,7 +13,7 @@ const Home = () => {
         </div>
       </div>
       <div className="image">
-        <img src="src/assets/herobanner.png" alt="" className="h-[30rem]" />
+        <img src={banner} alt="" className="h-[20rem]" />
       </div>
     </div>
   );

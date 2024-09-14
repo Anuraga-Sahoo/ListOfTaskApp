@@ -50,7 +50,7 @@ function App() {
 
       <div className="dataList  border-2 border-spacing-2 border-black overflow-y-scroll h-[30rem]">
         {/* table row heading  */}
-        <table>
+        <table >
           <thead>
 
         <tr >
