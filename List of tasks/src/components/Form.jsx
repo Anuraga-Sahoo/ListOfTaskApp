@@ -12,21 +12,21 @@ const Form = () => {
    
   // const [data , setData] = useState({title : "", description: "", date: "", priority:""})
 
+  // after submit  it save the data in storage with the help of redux toolkit
   const submitHandler = (e) => {
     e.preventDefault()
     console.log(data)
     dispatch(storeData())
-    dispatch(resetFormData())
+    // dispatch(resetFormData())
+    // dispatch(showandhide())
   }
 
-  // let updateHandler = (e) => {
-  //   setData({...data, [e.target.name] : e.target.value})
-  // }
+// get the value of  form data
   let updateHandler = (e) => {
     dispatch(updateFormData({ name: e.target.name, value: e.target.value }));
     }
 
-  // create redux toolkit for handle form
+  
   
   return (
     <>
@@ -41,25 +41,23 @@ const Form = () => {
             id=""
             placeholder="Enter your task Title"
             onChange={updateHandler}
+            required
             className="w-[18rem] h-[2.5rem] rounded-md px-[4rem] text-black mt-4"
           />
-          {/* <input
-            type="text"
-            name="text"
-            id=""
-            placeholder="Enter your task Description"
-            className="w-[12rem] h-[2rem] rounded-md p-3 text-black"
-          /> */}
+
           <textarea name="description" id=""
           placeholder="Describe Your Work"
           onChange={updateHandler}
+          required
           className='w-[18rem] h-[5rem] rounded-md px-[4.5rem] py-4 text-black'></textarea>
+
           <div className="flex gap-2">
           <input
             type="date"
             name="date"
             id=""
             onChange={updateHandler}
+            required
             className="w-[8.5rem] h-[2rem] rounded-md p-3 text-black"
           />
 
@@ -68,6 +66,7 @@ const Form = () => {
             name="priority"
             id=""
             onChange={updateHandler}
+            required
             placeholder="Enter Priority"
             className="w-[8.5rem] h-[2rem] rounded-md p-3 text-black"
           />
