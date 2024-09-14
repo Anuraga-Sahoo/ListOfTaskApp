@@ -2,22 +2,29 @@ import React, { useState } from "react";
 import { ImCross } from "react-icons/im";
 import { useDispatch, useSelector } from "react-redux";
 import { showandhide } from "../redux store/features/show/showSlice";
+import { resetFormData, storeData, updateFormData } from "../redux store/features/getData/getDataSlice";
 
 const Form = () => {
   
   const showForm = useSelector((state)=> state.show.value)
+  const data = useSelector((state) => state.getData.formData)
   const dispatch = useDispatch()
    
-  const [data , setData] = useState({title : "", description: "", date: "", priority:""})
+  // const [data , setData] = useState({title : "", description: "", date: "", priority:""})
 
   const submitHandler = (e) => {
     e.preventDefault()
     console.log(data)
+    dispatch(storeData())
+    dispatch(resetFormData())
   }
 
+  // let updateHandler = (e) => {
+  //   setData({...data, [e.target.name] : e.target.value})
+  // }
   let updateHandler = (e) => {
-    setData({...data, [e.target.name] : e.target.value})
-  }
+    dispatch(updateFormData({ name: e.target.name, value: e.target.value }));
+    }
 
   // create redux toolkit for handle form
   

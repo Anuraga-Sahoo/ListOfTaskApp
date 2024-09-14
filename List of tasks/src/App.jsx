@@ -8,7 +8,9 @@ import { IoArrowBackSharp } from "react-icons/io5";
 
 function App() {
   const showForm = useSelector((state) => state.show.value);
-  // console.log(showForm)
+  const listData = useSelector((state) => state.getData.formData)
+  const storeData = useSelector((state)=> state.getData.storage)
+  console.log(storeData)
   const dispatch = useDispatch();
   return (
     <>
@@ -65,21 +67,25 @@ function App() {
         {/* table row data */}
 
         <tbody>
-
-        <tr >
-          <td className="text-center font-sans">Make youtube video</td>
-          <td className="text-center font-sans w-[35rem] h-[0.5rem]">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, consequuntur?</td>
-          <td className="text-center font-sans">29-9-2024</td>
-          <td className="text-center font-sans">1st</td>
+{
+  storeData.map((data,index)=>{
+    console.log(index)
+    // if(data.title === "" || data.description === "" || data.date === "" || data.priority === ""){
+    //   return alert("enter a data")
+    // }
+    return(
+  <tr key={index} >
+          <td className="text-center font-sans">{data.title}</td>
+          <td className="text-center font-sans w-[35rem] h-[0.5rem]">{data.description}</td>
+          <td className="text-center font-sans">{data.date}</td>
+          <td className="text-center font-sans">{data.priority}</td>
           <td>incomplete</td>
         </tr>
-        <tr>
-          <td className="text-center font-sans">Make youtube video</td>
-          <td className="text-center font-sans ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, consequuntur? Lorem ipsum dolor sit amet.</td>
-          <td className="text-center font-sans">29-9-2024</td>
-          <td className="text-center font-sans">1st</td>
-          <td>incomplete</td>
-        </tr>
+    )
+  })
+        
+        }
+        
         </tbody>
         </table>
       </div>
