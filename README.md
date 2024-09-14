@@ -8,3 +8,4 @@ The application should have the following features:
 3. The ability to edit or delete a specific task from the list view.
 4. The ability to filter or search for specific tasks in the list view.
 5. A visual indicator of task status, such as completed or in progress.
+-----
