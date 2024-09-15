@@ -8,29 +8,30 @@ const Form = () => {
   
   const showForm = useSelector((state)=> state.show.value)
   const data = useSelector((state) => state.getData.formData)
+
   const dispatch = useDispatch()
    
-  // const [data , setData] = useState({title : "", description: "", date: "", priority:""})
 
   // after submit  it save the data in storage with the help of redux toolkit
   const submitHandler = (e) => {
     e.preventDefault()
     console.log(data)
     dispatch(storeData())
-    // dispatch(resetFormData())
-    // dispatch(showandhide())
+  
   }
 
 // get the value of  form data
   let updateHandler = (e) => {
     dispatch(updateFormData({ name: e.target.name, value: e.target.value }));
+
     }
 
   
   
   return (
     <>
-    <div className={showForm ? "main-container mt-[10rem] flex justify-center items-center" : "hidden"}>
+    <div className={showForm ? "main-container mt-[5rem] flex justify-center items-center flex-col"  : "hidden"}>
+      <h2 className="font-bold text-2xl m-2">Add your Task</h2>
     <div className="relative w-fit">
       <div className="input bg-zinc-900 h-fit p-10 w-fit rounded-md">
       <ImCross onClick={()=> dispatch(showandhide())} className="absolute  left-[20rem] top-5 text-white"/>

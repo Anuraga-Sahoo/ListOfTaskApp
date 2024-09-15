@@ -67,16 +67,16 @@ export const getDataSlice = createSlice({
       }
 
       // Create a priority queue instance
-      const priorityQueue = new PriorityQueue();
+      const priorityQueue = new PriorityQueue()
 
       // Enqueue all existing tasks into the priority queue
-      state.storage.forEach(task => priorityQueue.enqueue(task));
+      state.storage.forEach(task => priorityQueue.enqueue(task))
 
       // Add new form data to the priority queue
-      priorityQueue.enqueue({ ...state.formData });
+      priorityQueue.enqueue({ ...state.formData })
 
       // Retrieve the sorted tasks from the priority queue
-      state.storage = priorityQueue.getTasks();
+     state.storage = priorityQueue.getTasks()
     },
     
     // delete the data

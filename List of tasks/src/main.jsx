@@ -7,12 +7,14 @@ import Layout from './Layout.jsx'
 import Home from './components/Home.jsx'
 import { Provider } from 'react-redux'
 import { store } from './redux store/store.js'
+import ListUpdate from './components/ListUpdate.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element = {<Layout/>}>
       <Route path='' element ={<Home/>}/>
       <Route path='app' element={<App/>}/>
+      <Route path='edit/:id' element={<ListUpdate/>}/>
 
     </Route>
   )
